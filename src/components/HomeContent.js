@@ -8,7 +8,6 @@ function HomeContent() {
   return (
     <div className="mt-4">
       <Slider />
-      {/* <FavoritesListing /> */}
       <Categories />
     </div>
   );
