@@ -1,46 +1,27 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProduct } from "../redux/actions/allActions";
-import { Card, Button } from "react-bootstrap";
+import { fetchProduct } from "../redux/actions/allActions";
+import { Card } from "react-bootstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Categories from "./Categories";
-import Slider from "./Slider";
+import { shoppingApi } from "../apis/shoppingApi";
+
 library.add(fas, far);
 
 function ProductMainPage() {
-  const productInfo = useSelector((state) => state.product.product);
+  const productInfo = useSelector((state) => state.product.product.data);
   const dispatch = useDispatch();
-
   const { productId } = useParams();
-  console.log("productId: ", productId);
   const categoryNames = ["Elektronik", "Moda", "Kitap"];
-
-  async function fetchProducts() {
-    try {
-      const response = await axios.get(`http://localhost:3000/products/${productId}`);
-      if (response.data) {
-        console.log(response.data);
-        dispatch(getProduct(response.data));
-      }
-    } catch (e) {
-      console.log("Bilgiler Yüklenemedi.");
-    }
-  }
-
   useEffect(() => {
-    fetchProducts();
+    dispatch(fetchProduct(productId));
   }, []);
+  debugger;
+  //const { category, name, description, id, isFavorite, price, productImage } = productInfo;
 
-  const onFavoriteClick = (e) => {
-    console.log(e.target);
-  };
-
-  const { category, name, description, id, isFavorite, price, productImage } = productInfo;
   return (
     <div className="container mr-auto mt-4">
       <Card className="product-main flex-row">

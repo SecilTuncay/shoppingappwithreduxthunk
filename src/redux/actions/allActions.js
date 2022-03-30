@@ -22,12 +22,11 @@ export const fetchFavorites = () => async (dispatch) => {
   dispatch({ type: ActionTypes.FETCH_FAVORITES, payload: response });
 };
 
-export const getProduct = (product) => {
-  return {
-    type: ActionTypes.GET_PRODUCT,
-    payload: product,
-  };
+export const fetchProduct = (id) => async (dispatch) => {
+  const response = await shoppingApi.get(`/products/${id}`);
+  dispatch({ type: ActionTypes.FETCH_PRODUCT, payload: response });
 };
+
 export const getProducts = (products) => {
   return {
     type: ActionTypes.GET_PRODUCTS,
