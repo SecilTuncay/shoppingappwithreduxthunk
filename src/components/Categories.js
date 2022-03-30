@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategories } from "../redux/actions/allActions";
 import { Nav } from "react-bootstrap";
 import axios from "axios";
+i;
 
 function Categories() {
   const categoriesInfo = useSelector((state) => state.categories.categories);
