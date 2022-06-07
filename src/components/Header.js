@@ -9,7 +9,8 @@ library.add(fas);
 
 function Header() {
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar--katalog">
+		<div className="header-app">
+		<Navbar collapseOnSelect expand="lg" variant="dark">
 			<Container>
 				<Navbar.Brand href={"/"}>
 					<strong>Katalog App</strong>
@@ -17,12 +18,12 @@ function Header() {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link className="mr-2" href={"/"}>
+						<Nav.Link className="me-3 header-app__link" href={"/"}>
 							Ana Sayfa
 						</Nav.Link>
-						<Nav.Link href={"/"}>Ürünler</Nav.Link>
+						<Nav.Link className="header-app__link" href={"/"}>Ürünler</Nav.Link>
 					</Nav>
-					<Nav className="ml-auto">
+					<Nav className="ml-auto header-app__link">
 						<Nav.Link eventKey={2} href={`/favorites`}>
 							<p>
 								<FontAwesomeIcon icon="fa-solid fa-heart" />
@@ -33,6 +34,7 @@ function Header() {
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
+		</div>
 	);
 }
 

@@ -1,97 +1,127 @@
-$font-family: "Poppins", sans-serif;
-$main-bg: linear-gradient(280deg, rgba(39, 30, 79, 1) 0%, rgba(22, 13, 60, 1) 100%);
-$main-bg-color: #271e4f;
-
+// include customized bootstrap
+@import './scss/config'; // include all of Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 body {
-  margin: 0;
-  font-family: $font-family;
-  height: 100vh;
+    margin: 0;
+    font-family: $font-family;
+    height: 100vh;
+    background-color: $gray-500;
+    font-size: 1rem;
 }
+
 p {
-  margin: 0;
+    margin: 0;
 }
+
 .App {
-  height: 100vh;
+    height: 100vh;
 }
 
 footer {
-  background: $main-bg;
-  font-size: 14px;
+    background: $main-bg;
+    font-size: 14px;
 }
+
 h1 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .nav-link {
-  color: #ffffff !important;
-  padding: 0.5rem 0rem !important;
-  &:hover {
-    text-decoration: none !important;
-  }
+    color: $white !important;
+    padding: 0.5rem 0rem !important;
+    &:hover {
+        text-decoration: none !important;
+        color: $cyan !important;
+    }
 }
+
+.header-app {
+    background: $main-bg;
+}
+
+
+/* CAROUSEL */
+
+.carousel-main {
+    max-width: 1200px;
+    max-height: 390px;
+    margin: 0 auto;
+}
+
 .product-main {
-  img {
-    width: 20%;
-  }
-  .body {
-    flex: 2 2 20em !important;
-  }
-  .description {
-    font-size: 0.9rem;
-  }
+    img {
+        width: 20%;
+    }
+    .body {
+        flex: 2 2 20em !important;
+    }
+    .description {
+        font-size: 0.9rem;
+    }
 }
-.categories--btn {
-  border: 1px solid $main-bg-color;
-  &:hover {
-    background-color: $main-bg-color;
-    color: #fff;
-  }
+
+.categories {
+    &__btn {
+        border: 1px solid transparent;
+        background: $gray-300;
+        box-shadow: none;
+        transition: all 500ms ease;
+        &:hover {
+            background: $cyan;
+            color: #fff;
+            box-shadow: $box-shadow;
+            transform: scale(1.1);
+        }
+    }
 }
+
 .categories--container {
-  h2 {
-    font-size: 1.3rem;
-  }
+    h2 {
+        font-size: 1.3rem;
+    }
 }
 
 .image_cont {
-  height: 400px;
-  flex: 1 1 10em;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+    height: 400px;
+    flex: 1 1 10em;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
 .card-cont {
-  width: 30%;
-
-  .card-image {
-    width: 100%;
-    height: 35vh;
-    object-fit: scale-down;
-  }
-  .title {
-    font-size: 1rem;
-  }
-  .category {
-    font-size: 1rem;
-  }
-  .description {
-    font-size: 0.8rem;
-  }
+    width: 30%;
+    .card-image {
+        width: 100%;
+        height: 35vh;
+        object-fit: scale-down;
+    }
+    .title {
+        font-size: 1rem;
+    }
+    .category {
+        font-size: 1rem;
+    }
+    .description {
+        font-size: 0.8rem;
+    }
 }
+
 
 /*---Media Queries --*/
-@media (max-width: 992px) {
-}
+
+@media (max-width: 992px) {}
+
 @media (max-width: 768px) {
-  .card-cont {
-    width: 100%;
-  }
+    .card-cont {
+        width: 100%;
+    }
 }
+
 @media (max-width: 576px) {
-  .card-cont {
-    width: 100%;
-  }
+    .card-cont {
+        width: 100%;
+    }
 }

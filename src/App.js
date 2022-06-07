@@ -15,7 +15,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomeContent />} />
-
           <Route path="/products/:productId" exact element={<ProductMainPage />} />
           <Route path="/categories/:categoryId/products" exact element={<CategoryListing />} />
           <Route path="/favorites" exact element={<FavoritesListing />} />
