@@ -10,6 +10,8 @@ export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.FETCH_PRODUCT:
       return { ...state, product: payload };
+    case ActionTypes.FETCH_PRODUCTS:
+      return { ...state, products: payload };
     case ActionTypes.FETCH_FAVORITES:
       return { ...state, favorites: payload };
     case ActionTypes.ADD_TO_FAVORITES:

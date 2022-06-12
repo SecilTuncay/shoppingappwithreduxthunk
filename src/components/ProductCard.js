@@ -14,24 +14,26 @@ function ProductCard(props) {
   function addToFavorites(e) {
     console.log(e);
   }
-
+  const { id, productImage, name, description, isFavorite } = props.data;
+  
   return (
-    <Card className="card-cont mr-3 mb-3" key={props.data.id}>
-      <Link to={`/products/${props.data.id}`}>
-        <Card.Img className="card-image" variant="top" src={url + `/${props.data.productImage}`} />
-        <Card.Img />
-      </Link>
-      <Card.Body>
-        <Card.Title className="title mb-2">{props.data.name}</Card.Title>
-        <Card.Text className="category-name mb-2">{categoryName}</Card.Text>
-        <Card.Text className="description">{props.data.description}</Card.Text>
-      </Card.Body>
-      <Card.Footer>
-        <p onClick={addToFavorites} className="favorites pl-2 mt-2">
-          {props.data.isFavorite ? <FontAwesomeIcon icon="fa-solid fa-heart" /> : <FontAwesomeIcon icon="fa-regular fa-heart" />} {""} Favorilere Ekle
-        </p>
-      </Card.Footer>
-    </Card>
+    <div className="col-lg-3 my-2">
+      <Card className="card-cont" key={id}>
+        <Link className="card-cont__link" to={`/products/${id}`}>
+          <Card.Img className="img img-fluid" variant="top" src={url + `/${productImage}`} />
+        </Link>
+        <Card.Body>
+          <Card.Title className="card-cont__productname mb-2">{name}</Card.Title>
+          <Card.Text className="card-cont__categoryname mb-2">{categoryName}</Card.Text>
+          <Card.Text className="card-cont__description">{description}</Card.Text>
+        </Card.Body>
+        <Card.Footer className="p-3">
+          <p onClick={addToFavorites}>
+            {isFavorite ? <FontAwesomeIcon icon="fa-solid fa-heart" /> : <FontAwesomeIcon icon="fa-regular fa-heart" />} {""} <span className="ms-2"></span>Favorilere Ekle
+          </p>
+        </Card.Footer>
+      </Card>
+    </div>
   );
 }
 

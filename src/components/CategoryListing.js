@@ -7,6 +7,8 @@ import ProductCard from "./ProductCard";
 function CategoryListing() {
   const { categoryId } = useParams();
   const categoryProducts = useSelector((state) => state.categories.categoryProducts.data);
+
+  console.log('categoryProducts: ', categoryProducts);
   const dispatch = useDispatch();
   const categoryNames = ["Elektronik", "Moda", "Kitap"];
 
@@ -16,8 +18,8 @@ function CategoryListing() {
 
   return (
     <div className="container">
-      <h1 className="mt-4">{categoryNames[categoryId - 1]}</h1>
-      <hr />
+      <h1 className="mt-4 font-weight-bold">{categoryNames[categoryId - 1]}</h1>
+      <hr/>
       <div className="row flex-row p-2 m-auto">
         {categoryProducts &&
           categoryProducts.map((product, id) => {

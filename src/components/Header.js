@@ -21,7 +21,7 @@ function Header() {
 						<Nav.Link className="me-3 header-app__link" href={"/"}>
 							Ana Sayfa
 						</Nav.Link>
-						<Nav.Link className="header-app__link" href={"/"}>Ürünler</Nav.Link>
+						<Nav.Link className="header-app__link" href={`/products`}>Ürünler</Nav.Link>
 					</Nav>
 					<Nav className="ml-auto header-app__link">
 						<Nav.Link eventKey={2} href={`/favorites`}>

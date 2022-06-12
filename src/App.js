@@ -7,6 +7,7 @@ import React from "react";
 import CategoryListing from "./components/CategoryListing";
 import FavoritesListing from "./components/FavoritesListing";
 import HomeContent from "./components/HomeContent";
+import AllProducts from "./components/AllProducts";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomeContent />} />
+          <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" exact element={<ProductMainPage />} />
           <Route path="/categories/:categoryId/products" exact element={<CategoryListing />} />
           <Route path="/favorites" exact element={<FavoritesListing />} />

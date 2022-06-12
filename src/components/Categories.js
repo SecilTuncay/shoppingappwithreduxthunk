@@ -19,7 +19,7 @@ function Categories() {
 					<div className="d-flex flex-row justify-content-center">
 						{categoriesInfo &&
 							categoriesInfo.map(category => {
-								const { id, name, description } = category;
+								const { id, name } = category;
 								return (
 									<Nav.Link key={id} href={`/categories/${id}/products`}>
 										<button

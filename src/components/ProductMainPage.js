@@ -11,7 +11,7 @@ import { shoppingApi } from "../apis/shoppingApi";
 library.add(fas, far);
 
 function ProductMainPage() {
-  const productInfo = useSelector((state) => state.product.product.data);
+  const productInfo = useSelector(state => state.product.product.data);
   const dispatch = useDispatch();
   const { productId } = useParams();
   const categoryNames = ["Elektronik", "Moda", "Kitap"];
@@ -21,25 +21,38 @@ function ProductMainPage() {
   }, []);
 
   if (productInfo) {
-    var { category, name, description, id, isFavorite, price, productImage } = productInfo;
+    var { category, name, description, id, isFavorite, price, productImage } =
+      productInfo;
   }
 
   return (
-    <div className="container mr-auto mt-4">
+    <div className="container my-auto">
       {productInfo && (
-        <Card className="product-main flex-row">
-          <div className="image_cont d-flex align-items-center">
-            <Card.Img src={url + `/${productImage}`} />
-          </div>
-          <Card.Body className="body">
-            <Card.Title className="name_cont">{name}</Card.Title>
-            <p className="mb-2">{categoryNames[category - 1]}</p>
-            <Card.Text className=" description mb-2">{description}</Card.Text>
-            <Card.Text className="mb-2">
-              <span className="price ">{price}</span> TL
+        <Card className="product-main flex-lg-row p-4 m-auto my-4" key={id}>
+          <Card.Img
+            className="img img-fluid p-3"
+            src={url + `/${productImage}`}
+          />
+          <Card.Body className="ms-3 pt-5">
+            <Card.Title className="product-main__productname">
+              {name}
+            </Card.Title>
+            <Card.Text className="product-main__categoryname mb-4">
+              {categoryNames[category - 1]}
+            </Card.Text>
+            <Card.Text className="product-main__description mb-4">
+              {description}
+            </Card.Text>
+            <Card.Text className="mb-4">
+              <span className="price">{price}</span> TL
             </Card.Text>
             <Card.Text>
-              {isFavorite ? <FontAwesomeIcon icon="fa-solid fa-heart" /> : <FontAwesomeIcon icon="fa-regular fa-heart" />} {""} Favorilere Ekle
+              {isFavorite ? (
+                <FontAwesomeIcon icon="fa-solid fa-heart" />
+              ) : (
+                <FontAwesomeIcon icon="fa-regular fa-heart" />
+              )}{" "}
+              {""} Favorilere Ekle
             </Card.Text>
           </Card.Body>
         </Card>
@@ -49,3 +62,22 @@ function ProductMainPage() {
 }
 
 export default ProductMainPage;
+
+{
+  /* <Card key={id} className="product-main-cont flex-row">
+          <div className="image_cont d-flex align-items-center">
+            <Card.Img src={url + `/${productImage}`} />
+          </div>
+          <Card.Body className="body">
+            <Card.Title className="name_cont">{name}</Card.Title>
+            <p className="mb-2">{categoryNames[category - 1]}</p>
+            <Card.Text className="description mb-2">{description}</Card.Text>
+            <Card.Text className="mb-2">
+              <span className="price">{price}</span> TL
+            </Card.Text>
+            <Card.Text>
+              {isFavorite ? <FontAwesomeIcon icon="fa-solid fa-heart" /> : <FontAwesomeIcon icon="fa-regular fa-heart" />} {""} Favorilere Ekle
+            </Card.Text>
+          </Card.Body>
+        </Card> */
+}
